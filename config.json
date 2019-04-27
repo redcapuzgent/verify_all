@@ -1,0 +1,23 @@
+{
+  "name": "Verify all.",
+  "namespace": "uzgent\\VerifyClass",
+  "description": "This module allows you to verify all fields with one click.",
+  "authors": [
+    {
+      "name": "Lieven Vaneeckhaute",
+      "email": "lieven.vaneeckhaute@uzgent.be",
+      "institution": "University Hospital Ghent"
+    }
+  ],
+  "documentation" : "howto.html",
+  "permissions": [
+    "redcap_data_entry_form"
+  ],
+  "project-settings": [
+    {
+      "key": "debug",
+      "name": "Enable debugging to help you find out why the button is/isn't showing.",
+      "type": "checkbox"
+    }]
+
+}
