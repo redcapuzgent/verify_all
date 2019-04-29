@@ -16,7 +16,7 @@ class VerifyClass extends \ExternalModules\AbstractExternalModule {
         if ($resolution < 3 || $resolution > 5)
         {
             if ($debug){
-                echo "You don't have quality resolution rights";
+                echo "You don't have the appropriate Data Resolution Workflow rights.";
             }
             return;
         }

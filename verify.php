@@ -37,7 +37,7 @@ foreach ($metadataDao->getFieldNames($projectid, $instrument) as $field)
 }
 if (count($verified) > 0)
 {
-    echo "<h2>The following fields have been set to verified: <h2>";
+    echo "<h2>The following fields have been set to verified: </h2>";
     echo "<ul>";
     foreach($verified as $verifiedField)
     {
@@ -47,7 +47,7 @@ if (count($verified) > 0)
 }
 if (count($skipped) > 0)
 {
-    echo "<h2>The following fields have been skipped: <h2>";
+    echo "<h2>The following fields have been skipped: </h2>";
     echo "<ul>";
     foreach($skipped as $skippedField)
     {
