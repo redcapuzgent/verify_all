@@ -61,7 +61,6 @@ class DataResolutionDAO {
             throw new Exception("Unable to execute query " . mysqli_stmt_error($prepared_status) . " $sql");
         }
         $status_id = mysqli_insert_id($this->conn);
-        $userInitiator = User::getUserInfo($userid);
 
         $sql = "insert into redcap_data_quality_resolutions (status_id, ts, user_id, response_requested,
                                         response, comment, current_query_status, upload_doc_id)
@@ -69,11 +68,11 @@ class DataResolutionDAO {
                                         0, NULL, NULL, ?, NULL)"; //UPLOADDOC_ID
         $prepared_resolution = mysqli_prepare($this->conn, $sql);
         $now = NOW;
-        mysqli_stmt_bind_param($prepared_resolution, "dsds", $status_id, $now, $userInitiator['ui_id'], $dr_status);
+        mysqli_stmt_bind_param($prepared_resolution, "dsds", $status_id, $now, $userid, $dr_status);
         mysqli_execute($prepared_resolution);
         if (mysqli_stmt_error($prepared_resolution) != "")
         {
-            throw new Exception("Unable to execute query " . mysqli_stmt_error($prepared) . " $sql");
+            throw new Exception("Unable to execute query " . mysqli_stmt_error($prepared_resolution) . " $sql");
         }
     }
     
