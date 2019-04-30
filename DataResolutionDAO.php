@@ -74,6 +74,7 @@ class DataResolutionDAO {
         {
             throw new Exception("Unable to execute query " . mysqli_stmt_error($prepared_resolution) . " $sql");
         }
+        Logging::logEvent($sql,"redcap_data_quality_resolutions","MANAGE",$record, "", "Verified data value");
     }
     
 }
