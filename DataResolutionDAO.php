@@ -81,7 +81,7 @@ class DataResolutionDAO {
         // Set event_id in query string for logging purposes only
         $_GET['event_id'] = $eventid;
         // Log it
-        Logging::logEvent($sql,"redcap_data_quality_resolutions","MANAGE",$record, "", "Verified data value");
+        Logging::logEvent($sql,"redcap_data_quality_resolutions","MANAGE",$record, $logDataValues, "Verified data value");
     }
     
 }
