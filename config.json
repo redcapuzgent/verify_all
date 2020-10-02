@@ -1,11 +1,11 @@
 {
-  "name": "Verify all.",
+  "name": "Verify all",
   "namespace": "uzgent\\VerifyClass",
   "description": "This module allows you to verify all fields with one click.",
   "authors": [
     {
       "name": "Lieven Vaneeckhaute",
-      "email": "lieven.vaneeckhaute@uzgent.be",
+      "email": "redcap@uzgent.be",
       "institution": "University Hospital Ghent"
     }
   ],
