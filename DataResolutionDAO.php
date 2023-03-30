@@ -1,5 +1,9 @@
 <?php
 
+namespace uzgent\VerifyClass;
+
+use Logging;
+
 /**
  * Description of DataValue
  *
@@ -21,11 +25,11 @@ class DataResolutionDAO {
         $this->conn = $conn;
     }
     
-    public function fieldHasComments($projectid, $record, $field, $instanceid)
+    public function fieldHasComments($projectid, $record, $field, $instanceid, $eventid)
     {
-        $sql = "SELECT count(*) as count FROM redcap_data_quality_status WHERE project_id=? AND field_name=? AND instance = ? AND record = ?";
+        $sql = "SELECT count(*) as count FROM redcap_data_quality_status WHERE project_id=? AND field_name=? AND instance = ? AND record = ? AND event_id=?";
         $prepared = mysqli_prepare($this->conn, $sql);
-        mysqli_stmt_bind_param($prepared, "dsds", $projectid, $field, $instanceid, $record);
+        mysqli_stmt_bind_param($prepared, "isisi", $projectid, $field, $instanceid, $record, $eventid);
         mysqli_stmt_execute($prepared);
         mysqli_stmt_bind_result($prepared, $count);
         mysqli_stmt_fetch($prepared);

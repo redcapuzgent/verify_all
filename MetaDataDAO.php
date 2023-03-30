@@ -1,5 +1,7 @@
 <?php
 
+namespace uzgent\VerifyClass;
+
 /**
  * Description of DataValue
  *
@@ -29,15 +31,21 @@ class MetaDataDAO {
      */
     public function getFieldNames($projectid, $instrument)
     {
-        $sql = "SELECT field_name FROM redcap_metadata WHERE project_id=" . $projectid . " AND form_name='" . $instrument . "'";
-        $startTreatmentResult = mysqli_query($this->conn, $sql);
-        $queryResult = mysqli_fetch_assoc($startTreatmentResult);
+        $sql = "SELECT field_name FROM redcap_metadata WHERE project_id=? AND form_name=?";
+        $prepared = mysqli_prepare($this->conn, $sql);
+        mysqli_stmt_bind_param($prepared, "is", $projectid, $instrument);
+        mysqli_stmt_execute($prepared);
+        if (mysqli_stmt_error($prepared) != "")
+        {
+            throw new Exception("Unable to execute query " . mysqli_stmt_error($prepared) . " $sql");
+        }
+        $result = mysqli_stmt_get_result($prepared);
+        $queryResult = mysqli_fetch_assoc($result);
         $names = [];
         while ($queryResult !== null) {
             $names[] = $queryResult["field_name"];
-            $queryResult = mysqli_fetch_assoc($startTreatmentResult);
+            $queryResult = mysqli_fetch_assoc($result);
         }
-        mysqli_free_result($startTreatmentResult);
         return $names;
     }
     
