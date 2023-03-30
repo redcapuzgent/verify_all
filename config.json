@@ -23,6 +23,7 @@
       "key": "debug",
       "name": "Enable debugging to help you find out why the button is/isn't showing.",
       "type": "checkbox"
-    }]
+    }],
+   "framework-version": 10
 
 }
