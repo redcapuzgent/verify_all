@@ -1,7 +1,7 @@
 {
   "name": "Verify all",
   "namespace": "uzgent\\VerifyClass",
-  "description": "This module allows you to verify all fields with one click.",
+  "description": "<b>This module has been deprecated in favour of the Data Resolution Workflow Tweaks module.</b><br>This module allows you to verify all fields with one click.",
   "authors": [
     {
       "name": "Lieven Vaneeckhaute",
@@ -25,5 +25,4 @@
       "type": "checkbox"
     }],
    "framework-version": 10
-
 }
